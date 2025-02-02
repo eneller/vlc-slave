@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# vi: ft=bash
+help="vlcstream: Stream from this device to a computer running vlcslave.
+Available Arguments:
+
+    screen [slave-address]      Stream your current screen. Useful for streaming from a browser.
+
+
+    file [slave-address]        Stream a file. Use for media that is already saved locally.
+"
+
+err() {
+    echo "❌ Error: $1";
+    echo "Call vlcstream without arguments to display a quick help.";
+}
+# check if vlc is installed
+if ! command -v vlc &> /dev/null; then
+    err "VLC is not installed or not in PATH.";
+    exit 1;
+fi
+
+if [ "$#" -eq "2" ]; then
+    case $1 in
+        screen)
+            #TODO
+        ;;
+        file)
+            #TODO
+        ;;
+        *)
+            err "Illegal Argument";
+            exit 2;
+        ;;
+    esac
+else
+    echo "$help";
+fi
