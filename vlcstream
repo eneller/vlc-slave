@@ -3,11 +3,12 @@
 help="vlcstream: Stream from this device to a computer running vlcslave.
 Available Arguments:
 
-    screen [slave-address]      Stream your current screen. Useful for streaming from a browser.
+    screen [slave-address]          Stream your current screen. Useful for streaming from a browser.
 
+    file [slave-address] [file]     Stream a file. Use for media that is saved locally.
 
-    file [slave-address]        Stream a file. Use for media that is saved locally.
-"
+    stream [slave-address] [url]    Tell the slave to listen for an already existing stream on the network.
+    "
 
 err() {
     echo "❌ Error: $1";
@@ -21,12 +22,16 @@ fi
 
 if [ "$#" -eq "2" ]; then
     case $1 in
+        # use local vlc to create a stream of the current screen
         screen)
             #TODO
         ;;
+        # use local vlc to create a stream from a file
         file)
             #TODO
         ;;
+        # just pass a URL to a stream that should be opened by the vlc slave
+        stream)
         *)
             err "Illegal Argument";
             exit 2;
