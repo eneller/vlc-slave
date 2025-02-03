@@ -6,7 +6,7 @@ Available Arguments:
     screen [slave-address]      Stream your current screen. Useful for streaming from a browser.
 
 
-    file [slave-address]        Stream a file. Use for media that is already saved locally.
+    file [slave-address]        Stream a file. Use for media that is saved locally.
 "
 
 err() {
